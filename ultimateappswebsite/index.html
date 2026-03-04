@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UltimateAppsCA - Professional web design, mobile app development, and logo design services in Temagami, Ontario. Custom websites and apps by Rob Trudel.">
+    <meta name="keywords" content="web design, mobile app development, logo design, Temagami Ontario, website hosting, custom websites">
+    <meta name="author" content="Rob Trudel">
+    <meta property="og:title" content="UltimateAppsCA - Web & Mobile App Development">
+    <meta property="og:description" content="Professional web design and mobile app development services in Northern Ontario">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <title>UltimateAppsCA | Web Design & Mobile App Development | Temagami, ON</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#0ea5e9',
+                            dark: '#38bdf8'
+                        },
+                        secondary: {
+                            light: '#6366f1',
+                            dark: '#818cf8'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .dark .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        
+        .dark .glass-effect {
+            background: rgba(15, 23, 42, 0.7);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .portfolio-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .portfolio-card:hover {
+            transform: scale(1.02);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #0ea5e9;
+            transition: width 0.3s ease;
+        }
+        
+        .dark .nav-link::after {
+            background-color: #38bdf8;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        
+        .dark ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 5px;
+        }
+        
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Lightning bolt animation */
+        @keyframes flash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .lightning-bolt {
+            animation: flash 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-effect border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <svg class="w-8 h-8 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    </svg>
+                    <span class="font-bold text-xl tracking-tight">UltimateApps<span class="text-sky-500">CA</span></span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-sm font-medium hover:text-sky-500 transition-colors">Home</a>
+                    <a href="#services" class="nav-link text-sm font-medium hover:text-sky-500 transition-colors">Services</a>
+                    <a href="#portfolio" class="nav-link text-sm font-medium hover:text-sky-500 transition-colors">Portfolio</a>
+                    <a href="#about" class="nav-link text-sm font-medium hover:text-sky-500 transition-colors">About</a>
+                    <a href="#contact" class="nav-link text-sm font-medium hover:text-sky-500 transition-colors">Contact</a>
+                    
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors" aria-label="Toggle theme">
+                        <svg id="sun-icon" class="w-5 h-5 hidden dark:block text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                        <svg id="moon-icon" class="w-5 h-5 block dark:hidden text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center gap-4">
+                    <button id="theme-toggle-mobile" class="p-2 rounded-lg bg-slate-200 dark:bg-slate-800" aria-label="Toggle theme">
+                        <svg class="w-5 h-5 hidden dark:block text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                        <svg class="w-5 h-5 block dark:hidden text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-slate-700 dark:text-slate-300 hover:text-sky-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-effect border-t border-slate-200 dark:border-slate-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-sky-500 hover:text-white transition-colors">Home</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-sky-500 hover:text-white transition-colors">Services</a>
+                <a href="#portfolio" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-sky-500 hover:text-white transition-colors">Portfolio</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-sky-500 hover:text-white transition-colors">About</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-sky-500 hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 -z-10">
+            <svg class="absolute top-0 left-0 w-full h-full opacity-5 dark:opacity-10" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                    <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                        <circle cx="1" cy="1" r="1" class="fill-slate-900 dark:fill-slate-100"/>
+                    </pattern>
+                </defs>
+                <rect width="100" height="100" fill="url(#grid)"/>
+            </svg>
+            <div class="absolute top-20 right-0 w-96 h-96 bg-sky-400/20 dark:bg-sky-500/20 rounded-full blur-3xl animate-pulse-slow"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-indigo-400/20 dark:bg-indigo-500/20 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8 animate-fade-in">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300 text-sm font-medium border border-sky-200 dark:border-sky-800">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+                        </span>
+                        Available for new projects
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-7xl font-bold leading-tight">
+                        Crafting Digital <span class="gradient-text">Experiences</span> That Matter
+                    </h1>
+                    
+                    <p class="text-xl text-slate-600 dark:text-slate-400 max-w-lg">
+                        Professional web design, mobile app development, and brand identity services. Based in Temagami, serving clients across Ontario.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#portfolio" class="px-8 py-4 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-sky-500/30">
+                            View My Work
+                        </a>
+                        <a href="#contact" class="px-8 py-4 border-2 border-slate-300 dark:border-slate-700 hover:border-sky-500 dark:hover:border-sky-500 font-semibold rounded-lg transition-all hover:text-sky-500">
+                            Get in Touch
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center gap-6 text-sm text-slate-500 dark:text-slate-400">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>Responsive Design</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>SEO Optimized</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>Fast Performance</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative lg:h-[600px] flex items-center justify-center">
+                    <!-- Animated SVG Illustration -->
+                    <svg class="w-full h-full max-w-lg animate-float" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Browser Window -->
+                        <rect x="50" y="80" width="300" height="220" rx="12" class="fill-white dark:fill-slate-800 stroke-slate-300 dark:stroke-slate-600" stroke-width="2"/>
+                        <rect x="50" y="80" width="300" height="30" rx="12" class="fill-slate-100 dark:fill-slate-700"/>
+                        <circle cx="70" cy="95" r="4" class="fill-red-400"/>
+                        <circle cx="85" cy="95" r="4" class="fill-yellow-400"/>
+                        <circle cx="100" cy="95" r="4" class="fill-green-400"/>
+                        
+                        <!-- Code Lines -->
+                        <rect x="70" y="130" width="120" height="8" rx="4" class="fill-sky-200 dark:fill-sky-900"/>
+                        <rect x="70" y="150" width="200" height="8" rx="4" class="fill-slate-200 dark:fill-slate-600"/>
+                        <rect x="70" y="170" width="160" height="8" rx="4" class="fill-slate-200 dark:fill-slate-600"/>
+                        <rect x="70" y="190" width="140" height="8" rx="4" class="fill-indigo-200 dark:fill-indigo-900"/>
+                        
+                        <!-- Phone -->
+                        <rect x="250" y="200" width="80" height="140" rx="16" class="fill-white dark:fill-slate-800 stroke-slate-300 dark:stroke-slate-600" stroke-width="2" transform="rotate(15 290 270)"/>
+                        <rect x="260" y="215" width="60" height="110" rx="8" class="fill-slate-900 dark:fill-slate-950" transform="rotate(15 290 270)"/>
+                        <circle cx="290" cy="335" r="6" class="fill-slate-300 dark:fill-slate-600" transform="rotate(15 290 270)"/>
+                        
+                        <!-- App Elements on Phone -->
+                        <rect x="270" y="225" width="40" height="6" rx="3" class="fill-sky-500" transform="rotate(15 290 270)"/>
+                        <rect x="270" y="240" width="30" height="30" rx="6" class="fill-indigo-500" transform="rotate(15 290 270)"/>
+                        <rect x="305" y="240" width="30" height="30" rx="6" class="fill-purple-500" transform="rotate(15 290 270)"/>
+                        
+                        <!-- Floating Elements -->
+                        <circle cx="320" cy="120" r="20" class="fill-sky-400/30 animate-pulse"/>
+                        <circle cx="80" cy="300" r="15" class="fill-indigo-400/30 animate-pulse" style="animation-delay: 1s;"/>
+                        <rect x="300" y="280" width="40" height="40" rx="8" class="fill-purple-400/20 rotate-12"/>
+                        
+                        <!-- Connection Lines -->
+                        <path d="M 150 200 Q 200 250 250 220" stroke="url(#gradient)" stroke-width="2" fill="none" stroke-dasharray="5,5" class="animate-pulse"/>
+                        
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" class="text-sky-500" stop-color="currentColor"/>
+                                <stop offset="100%" class="text-indigo-500" stop-color="currentColor"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white dark:bg-slate-800/50 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Services I Offer</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Comprehensive digital solutions tailored to your business needs. From concept to deployment, I've got you covered.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Web Design -->
+                <div class="service-card p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-sky-500 dark:hover:border-sky-500 group">
+                    <div class="w-14 h-14 rounded-xl bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-sky-600 dark:text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Web Design</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">Custom, responsive websites built with modern technologies. Optimized for all devices and search engines.</p>
+                </div>
+                
+                <!-- Mobile Apps -->
+                <div class="service-card p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-sky-500 dark:hover:border-sky-500 group">
+                    <div class="w-14 h-14 rounded-xl bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Mobile Apps</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">Native and cross-platform mobile applications for iOS and Android. Intuitive UX/UI design.</p>
+                </div>
+                
+                <!-- Logo Design -->
+                <div class="service-card p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-sky-500 dark:hover:border-sky-500 group">
+                    <div class="w-14 h-14 rounded-xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Logo Design</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">Unique, memorable brand identities. Vector-based logos that scale perfectly for any use case.</p>
+                </div>
+                
+                <!-- Hosting -->
+                <div class="service-card p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-sky-500 dark:hover:border-sky-500 group">
+                    <div class="w-14 h-14 rounded-xl bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Web Hosting</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">Reliable, secure hosting with SSL certificates, regular backups, and 99.9% uptime guarantee.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured Work</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">A selection of recent projects showcasing diverse industries and design approaches.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Local Grocery -->
+                <a href="https://localgrocery.ultimateapps.ca/" target="_blank" rel="noopener noreferrer" class="portfolio-card group block bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-2xl transition-all">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center relative overflow-hidden">
+                        <svg class="w-24 h-24 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-sky-500 transition-colors">Local Grocery Store</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">E-commerce platform for a local convenience store with online ordering and inventory management.</p>
+                        <span class="inline-flex items-center text-sky-500 text-sm font-medium">
+                            View Project 
+                            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Kids Shovelling -->
+                <a href="https://kidsshovelling.ultimateapps.ca/" target="_blank" rel="noopener noreferrer" class="portfolio-card group block bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-2xl transition-all">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 to-cyan-600 flex items-center justify-center relative overflow-hidden">
+                        <svg class="w-24 h-24 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                        </svg>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-sky-500 transition-colors">Kids Shovelling Business</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Seasonal service website with booking system and route optimization for snow removal services.</p>
+                        <span class="inline-flex items-center text-sky-500 text-sm font-medium">
+                            View Project 
+                            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Kids Lemonade -->
+                <a href="https://kidslemonade.ultimateapps.ca/" target="_blank" rel="noopener noreferrer" class="portfolio-card group block bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-2xl transition-all">
+                    <div class="h-48 bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center relative overflow-hidden">
+                        <svg class="w-24 h-24 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+                        </svg>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-sky-500 transition-colors">Lemonade Stand Service</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">E-commerce site with pickup scheduling, order management, and seasonal menu features.</p>
+                        <span class="inline-flex items-center text-sky-500 text-sm font-medium">
+                            View Project 
+                            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Game Website -->
+                <a href="https://gamewebsite.ultimateapps.ca/" target="_blank" rel="noopener noreferrer" class="portfolio-card group block bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-2xl transition-all">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center relative overflow-hidden">
+                        <svg class="w-24 h-24 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-sky-500 transition-colors">Game Launch Site</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Immersive promotional website for an upcoming game release with trailer integration and newsletter signup.</p>
+                        <span class="inline-flex items-center text-sky-500 text-sm font-medium">
+                            View Project 
+                            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Autobody Shop -->
+                <a href="https://autobodyshop.ultimateapps.ca/" target="_blank" rel="noopener noreferrer" class="portfolio-card group block bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-2xl transition-all">
+                    <div class="h-48 bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center relative overflow-hidden">
+                        <svg class="w-24 h-24 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-sky-500 transition-colors">Autobody Shop</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Professional service website with appointment booking, service catalog, and before/after gallery.</p>
+                        <span class="inline-flex items-center text-sky-500 text-sm font-medium">
+                            View Project 
+                            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- CTA Card -->
+                <div class="portfolio-card group block bg-gradient-to-br from-sky-500 to-indigo-600 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-2xl transition-all flex flex-col items-center justify-center p-8 text-center text-white">
+                    <svg class="w-16 h-16 mb-4 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                    </svg>
+                    <h3 class="text-xl font-bold mb-2">Your Project Here</h3>
+                    <p class="text-sm mb-4 opacity-90">Let's create something amazing together.</p>
+                    <a href="#contact" class="px-6 py-2 bg-white text-sky-600 rounded-lg font-semibold hover:bg-slate-100 transition-colors">
+                        Start a Project
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white dark:bg-slate-800/50 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-sky-400 to-indigo-400 rounded-3xl transform rotate-3 opacity-20"></div>
+                    <div class="relative bg-slate-100 dark:bg-slate-800 rounded-3xl p-8 border border-slate-200 dark:border-slate-700">
+                        <svg class="w-full h-64" viewBox="0 0 400 300" fill="none">
+                            <!-- Desk -->
+                            <rect x="50" y="200" width="300" height="10" rx="2" class="fill-slate-300 dark:fill-slate-600"/>
+                            <rect x="80" y="210" width="10" height="60" class="fill-slate-300 dark:fill-slate-600"/>
+                            <rect x="310" y="210" width="10" height="60" class="fill-slate-300 dark:fill-slate-600"/>
+                            
+                            <!-- Monitor -->
+                            <rect x="120" y="120" width="160" height="100" rx="4" class="fill-slate-800 dark:fill-slate-900 stroke-slate-600" stroke-width="2"/>
+                            <rect x="130" y="130" width="140" height="80" rx="2" class="fill-sky-900/30"/>
+                            <path d="M 140 150 L 180 150 L 170 170 L 150 170 Z" class="fill-sky-500/50"/>
+                            <rect x="140" y="180" width="100" height="4" rx="2" class="fill-slate-600"/>
+                            <rect x="140" y="190" width="80" height="4" rx="2" class="fill-slate-600"/>
+                            
+                            <!-- Stand -->
+                            <rect x="190" y="220" width="20" height="10" class="fill-slate-400"/>
+                            <rect x="180" y="225" width="40" height="5" rx="2" class="fill-slate-400"/>
+                            
+                            <!-- Coffee -->
+                            <rect x="300" y="180" width="30" height="40" rx="2" class="fill-slate-700"/>
+                            <rect x="305" y="185" width="20" height="30" rx="1" class="fill-amber-800"/>
+                            <path d="M 330 190 Q 340 190 340 200 Q 340 210 330 210" class="stroke-slate-700" stroke-width="3" fill="none"/>
+                            
+                            <!-- Plant -->
+                            <rect x="70" y="170" width="40" height="40" rx="2" class="fill-amber-700"/>
+                            <circle cx="90" cy="160" r="15" class="fill-green-500"/>
+                            <circle cx="80" cy="150" r="12" class="fill-green-400"/>
+                            <circle cx="100" cy="155" r="10" class="fill-green-600"/>
+                            
+                            <!-- Code floating -->
+                            <rect x="320" y="100" width="60" height="8" rx="2" class="fill-sky-400/50"/>
+                            <rect x="330" y="115" width="40" height="8" rx="2" class="fill-indigo-400/50"/>
+                            <rect x="40" y="140" width="50" height="8" rx="2" class="fill-purple-400/50"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <h2 class="text-3xl md:text-4xl font-bold">Hi, I'm Rob Trudel</h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-400">
+                        I'm a solo developer and designer based in Temagami, Ontario, passionate about creating digital solutions that help local businesses thrive online.
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-400">
+                        With expertise in modern web technologies, mobile development, and brand design, I offer end-to-end digital services. Whether you need a simple brochure website or a complex e-commerce platform, I handle everything from design to deployment and hosting.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="font-medium">Clean Code</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="font-medium">Fast Delivery</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="font-medium">SEO Ready</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="font-medium">Ongoing Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Let's Work Together</h2>
+                <p class="text-slate-600 dark:text-slate-400">Have a project in mind? I'd love to hear about it. Send me a message and let's create something great.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div class="space-y-8">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-sky-600 dark:text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Email</h3>
+                            <a href="mailto:general@ultimateapps.ca" class="text-slate-600 dark:text-slate-400 hover:text-sky-500 transition-colors">general@ultimateapps.ca</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-sky-600 dark:text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Location</h3>
+                            <p class="text-slate-600 dark:text-slate-400">Temagami, ON<br>P0H 2H0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-sky-600 dark:text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Business Hours</h3>
+                            <p class="text-slate-600 dark:text-slate-400">Monday - Friday<br>9:00 AM - 5:00 PM EST</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form action="https://formspree.io/f/xnjbellb" method="POST" class="space-y-6 bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl border border-slate-200 dark:border-slate-700">
+                    <div>
+                        <label class="block text-sm font-medium mb-2" for="name">Name</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 outline-none transition-all" placeholder="Your name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2" for="email">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 outline-none transition-all" placeholder="your@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2" for="service">Service Interested In</label>
+                        <select id="service" name="service" class="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 outline-none transition-all">
+                            <option>Web Design</option>
+                            <option>Mobile App Development</option>
+                            <option>Logo Design</option>
+                            <option>Web Hosting</option>
+                            <option>Multiple Services</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2" for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 outline-none transition-all resize-none" placeholder="Tell me about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-lg transition-all transform hover:scale-[1.02] shadow-lg shadow-sky-500/30">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <svg class="w-8 h-8 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                        <span class="font-bold text-xl text-white">UltimateApps<span class="text-sky-500">CA</span></span>
+                    </div>
+                    <p class="text-slate-400 max-w-sm">Professional web design, mobile app development, and digital solutions for businesses in Temagami and across Ontario.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-sky-400 transition-colors">Home</a></li>
+                        <li><a href="#services" class="hover:text-sky-400 transition-colors">Services</a></li>
+                        <li><a href="#portfolio" class="hover:text-sky-400 transition-colors">Portfolio</a></li>
+                        <li><a href="#contact" class="hover:text-sky-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><span class="text-slate-400">Sole Proprietorship</span></li>
+                        <li><span class="text-slate-400">Temagami, ON P0H 2H0</span></li>
+                        <li><a href="mailto:general@ultimateapps.ca" class="hover:text-sky-400 transition-colors">general@ultimateapps.ca</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-slate-500">&copy; <span id="current-year">2026</span> UltimateAppsCA. All rights reserved. Owned and operated by Rob Trudel.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-slate-400 hover:text-sky-400 transition-colors">
+                        <span class="sr-only">GitHub</span>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-sky-400 transition-colors">
+                        <span class="sr-only">LinkedIn</span>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Built and Powered by UltimateAppsCA with lightning bolts -->
+            <div class="mt-8 pt-8 border-t border-slate-800 text-center">
+                <div class="flex items-center justify-center gap-3 text-slate-500 text-sm">
+                    <svg class="w-5 h-5 lightning-bolt text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="font-medium tracking-wide">Built and Powered by UltimateAppsCA</span>
+                    <svg class="w-5 h-5 lightning-bolt text-yellow-500" fill="currentColor" viewBox="0 0 20 20" style="animation-delay: 1s;">
+                        <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        const html = document.documentElement;
+        
+        // Check for saved theme preference or default to light
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+        
+        function toggleTheme() {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                html.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+        
+        themeToggle.addEventListener('click', toggleTheme);
+        themeToggleMobile.addEventListener('click', toggleTheme);
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+
+        // Auto-update year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
